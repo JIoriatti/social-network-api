@@ -17,8 +17,8 @@ const userSchema = new Schema({
             return  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(v)
         }
     },
-    thoughts: [Thought],
-    friends: [User],
+    thoughts: [{type: Types.ObjectId, ref: 'thought'}],
+    friends: [{type: Types.ObjectId, ref: 'user'}],
 },
 {
     toJSON: {
