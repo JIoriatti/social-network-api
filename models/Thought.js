@@ -1,5 +1,6 @@
 const { Schema, model, Types} = require('mongoose');
 const reactionSchema = require('./Reaction');
+const User = require('./User');
 
 const thoughtSchema = new Schema({
     thoughtText: {
@@ -32,6 +33,7 @@ thoughtSchema
     .get(function(){
         return this.reactions.length;
     });
+
 const Thought = model('thought', thoughtSchema);
 
 module.exports = Thought;

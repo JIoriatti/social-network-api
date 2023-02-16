@@ -64,11 +64,11 @@ module.exports ={
                     thoughts: ""
                 }})
                 if(!updatedUser){
-                    res.status(404).json({message: 'User not found.'})
+                    return res.status(404).json({message: 'User not found.'})
                 }
             const deletedUser = await User.findOneAndRemove({ _id: req.params.userId })
                 if(!deletedUser){
-                    res.status(404).json({message: 'User not found.'})
+                    return res.status(404).json({message: 'User not found.'})
                 }
             res.json({message: 'User and thoughts deleted successfully.'})
         }catch(err){
